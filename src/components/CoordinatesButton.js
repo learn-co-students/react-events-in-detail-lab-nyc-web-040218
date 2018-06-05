@@ -1,11 +1,15 @@
 import React from 'react';
 
 class CoordinatesButton extends React.Component {
-    getCoordinates = (e) => {
-        let x = e.clientX;
-        let y = e.clientY;
-        onReceiveCoordinates(x,y);
+    constructor(props){
+        super(props);
     }
+
+    getCoordinates = (e) => {
+        let arr = [e.clientX, e.clientY]
+        this.props.onReceiveCoordinates(arr);
+    }
+
     render() {
         return (
             <button onClick={this.getCoordinates}>Click Me!</button>
